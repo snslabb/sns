@@ -1,0 +1,91 @@
+/* Basic page styling */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+    background-color: aliceblue;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Styling for the image container on the index page */
+.image-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap for responsive layout */
+    justify-content: space-evenly;
+    max-width: 800px;
+    margin: auto;
+    gap: 16px; /* Spacing between each item */
+}
+
+/* Style for each individual image link container */
+.image-container a {
+    position: relative;
+    width: 150px; /* Set a fixed width for each image */
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Style for each individual image */
+.image-container img {
+    width: 100%; /* Match container size */
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth scale effect */
+    display: block;
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Hover effect on image */
+.image-container a:hover img {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Style for the text overlay */
+.image-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.1em;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 8px; /* Match image rounding */
+}
+
+/* Show overlay text on hover */
+.image-container a:hover .overlay {
+    opacity: 1;
+}
+
+/* Style for links */
+.image-container a {
+    color: inherit; /* Inherit text color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Profile container styling */
+.profile-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

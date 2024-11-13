@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./static/styles.css') }}">
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Users</h1>
+    </div>
+    <hr>
+    <div class="image-container">
+        {% for user in users %}
+        <a href="{{ url_for('profile', user_id=user.split('/')[-1]) }}" class="user-link">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHvZ0pbf4bXvAJgVZVuRQqrNWnoWl96cV6wQ&s" 
+                 alt="User Image" class="avatar">
+            <div class="overlay">{{ social_graph.value(user, FOAF.name) }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</body>
+</html>

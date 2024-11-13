@@ -1,0 +1,22 @@
+Create nodes for characters: 
+// Create nodes for characters 
+CREATE (luffy:Character {name: 'Monkey D. Luffy'}) 
+CREATE (zoro:Character {name: 'Roronoa Zoro'}) 
+CREATE (nami:Character {name: 'Nami'}) 
+CREATE (usopp:Character {name: 'Usopp'}) 
+CREATE (sanji:Character {name: 'Sanji'}) 
+
+// Create relationship between characters 
+CREATE (luffy)-[:FRIEND_OF]→(zoro) 
+CREATE (luffy)-[:FRIEND_OF]→(nami) 
+CREATE (zoro)-[:FRIEND_OF]→(usopp) 
+CREATE (nami)-[:FRIEND_OF]→(usopp) 
+CREATE (nami)-[:FRIEND_OF]→(sanji) WITH 1 as dummy 
+MATCH (c:Character)-[:FRIEND_OF]-(f:Character) 
+RETURN c, f; 
+
+Finding friends of friends :
+// Find friends of friends for luffy 
+MATCH (start:Character {name: 'Monkey D. Luffy'})-[:FRIEND_OF]→(friend)-[:FRIEND_OF]→(friendOfFriend)
+WHERE friendOfFriend <> start RETURN 
+DISTINCT friendOfFriend.name 

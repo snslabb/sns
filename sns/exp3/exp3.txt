@@ -1,0 +1,35 @@
+// Nodes for characters
+CREATE (:Character {name: 'Monkey D. Luffy', position: 'Captain'})
+CREATE (:Character {name: 'Roronoa Zoro', position: 'Swordsman'})
+CREATE (:Character {name: 'Nami', position: 'Navigator'})
+
+// Nodes for islands
+CREATE (:Island {name: 'Dressrosa', type: 'Kingdom'})
+CREATE (:Island {name: 'Alabasta', type: 'Kingdom'})
+
+// Relationships between characters and islands
+MATCH (luffy:Character {name: 'Monkey D. Luffy'})
+MATCH (zoro:Character {name: 'Roronoa Zoro'})
+MATCH (nami:Character {name: 'Nami'})
+MATCH (dressrosa:Island {name: 'Dressrosa'})
+MATCH (alabasta:Island {name: 'Alabasta'})
+CREATE (luffy)-[:VISITS]->(dressrosa)
+CREATE (zoro)-[:VISITS]->(alabasta)
+CREATE (nami)-[:VISITS]->(dressrosa)
+
+// Retrieve all characters
+MATCH (c:Character)
+RETURN c
+
+// Retrieve characters visiting a specific island
+MATCH (character)-[:VISITS]->(island:Island {name: 'Dressrosa'})
+RETURN character
+
+// Update character’s position
+MATCH (luffy:Character {name: 'Monkey D. Luffy'})
+SET luffy.position = 'Pirate King'
+RETURN luffy
+
+// Delete character and relationships
+MATCH (character:Character {name: 'Nami'})-[r]-()
+DELETE character, r

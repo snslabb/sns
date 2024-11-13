@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security and Privacy Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./static/styles.css') }}">
+  </head>
+  <body class="form-body">
+    <h2>Security and Privacy Detector</h2>
+
+    <div class="form-container">
+      <form action="/result" method="post">
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="text" placeholder="First Name" name="first_name">
+        <input type="text" placeholder="Last Name" name="last_name">
+        <input type="email" placeholder="Email" name="email">
+
+        <!-- Security -->
+        <input type="password" placeholder="Password" name="password" required>
+        
+        <div class="checkboxes">
+          <input type="checkbox" value="2fa" name="2fa" id="2fa">
+          <label for="2fa">Two-Step Verification</label>
+        </div>
+
+        <!-- Privacy -->
+        <div class="checkboxes">
+          <input type="checkbox" value="private" id="private" name="private">
+          <label for="private">Private Account</label>
+        </div>
+
+        <label for="priv_email">Who can see my email</label>
+        <select name="priv_email" id="priv_email">
+          <option value="everybody">Everybody</option>
+          <option value="friends">My Friends</option>
+          <option value="nobody">Nobody</option>
+        </select>
+
+        <label for="priv_activity">Last seen and online</label>
+        <select name="priv_activity" id="priv_activity">
+          <option value="everybody">Everybody</option>
+          <option value="friends">My Friends</option>
+          <option value="nobody">Nobody</option>
+        </select>
+
+        <label for="priv_pfp">Who can see my profile photo</label>
+        <select name="priv_pfp" id="priv_pfp">
+          <option value="everybody">Everybody</option>
+          <option value="friends">My Friends</option>
+          <option value="nobody">Nobody</option>
+        </select>
+
+        <label for="priv_bio">Who can see my bio</label>
+        <select name="priv_bio" id="priv_bio">
+          <option value="everybody">Everybody</option>
+          <option value="friends">My Friends</option>
+          <option value="nobody">Nobody</option>
+        </select>
+
+        <label for="priv_call">Who can call me</label>
+        <select name="priv_call" id="priv_call">
+          <option value="everybody">Everybody</option>
+          <option value="friends">My Friends</option>
+          <option value="nobody">Nobody</option>
+        </select>
+
+        <button type="submit">Detect</button>
+      </form>
+    </div>
+  </body>
+</html>

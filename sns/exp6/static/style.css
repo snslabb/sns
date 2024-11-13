@@ -1,0 +1,56 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.form-body {
+  display: flex;
+  align-items: center;
+  place-content: center;
+  place-items: center;
+  margin-top: 5%;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.form-container {
+  display: flex;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container form input[type="text"],
+.form-container form input[type="email"],
+.form-container form input[type="password"] {
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid grey;
+  height: 30px;
+  outline: none;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  padding: 3px;
+}
+
+select {
+  margin-bottom: 10px;
+}
+
+.form-body h2 {
+  margin-bottom: 20px;
+}
+
+button {
+  width: 90px;
+}
+
+.result-body {
+  padding: 30px;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security and Privacy Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body class="result-body">
+    <h3>Hello, {{ data.username }}...</h3>
+    <br>
+    <ul>
+      <li>
+        <span style="font-weight: 700;">Your security level:</span> {{ data.sec_ratio }}
+      </li>
+      <li>
+        <span style="font-weight: 700;">Your privacy level:</span> {{ data.priv_ratio }}
+      </li>
+    </ul>
+  </body>
+</html>

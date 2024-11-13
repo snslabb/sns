@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header>
+      <form action="/search" method="post">
+        <label for="search_query">Search:</label>
+        <input type="text" name="search_query" id="search_query" placeholder="Type here.." required>
+        <button type="submit">Search</button>
+      </form>
+    </header>
+
+    <div class="users-container">
+      <h3>Your Friends:</h3>
+      <br />
+      <div class="users">
+        <ul>
+          {% for member, details in users %}
+            <li>{{ details.name }}</li>
+            <br />
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
